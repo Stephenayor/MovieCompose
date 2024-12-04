@@ -21,12 +21,29 @@ class MoviesRepositoryImpl @Inject constructor(
     override suspend fun getAllMovies(page: Int): Flow<ApiResponse<MoviesList>> = flow{
         emit(ApiResponse.Loading) // Emit loading state before the network call
         try {
-            val response = apiInterface.getMovies(page)
-            // Assuming the response is successful, emit the success state
-//            emit(ApiResponse.Success(response).data)
+            val response = apiInterface.getMovies(
+                includeAdult = false,
+                includeVideo = false,
+                language = "en-US",
+                page = 1,
+                sortBy = "popularity.desc"
+            )
+            Log.d("Moviesnow", ApiResponse.Success(response).data.toString())
+            emit(ApiResponse.Success(response))
         } catch (e: Exception) {
-            Log.e("MoviesRepository", "Error fetching movies: ${e.message}", e)
+            Log.d("MoviesRepository", "Error fetching movies: ${e.message}", e)
             emit(ApiResponse.Failure(e)) // Emit failure state with the exception
         }
+    }
+
+    override suspend fun fetchMovies() {
+        val response = apiInterface.getMovies(
+            includeAdult = false,
+            includeVideo = false,
+            language = "en-US",
+            page = 1,
+            sortBy = "popularity.desc"
+        )
+        Log.d("Movies", response.results.toString())
     }
 }

@@ -9,8 +9,12 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiInterface {
-    @GET("movies?")
+    @GET("discover/movie?")
     suspend fun getMovies(
-        @Query("page")page: Int
-    ): Flow<ApiResponse<MoviesList>>
+        @Query("include_adult") includeAdult: Boolean? = false,
+        @Query("include_video") includeVideo: Boolean? = false,
+        @Query("language") language: String? = "en-US",
+        @Query("page") page: Int = 1,
+        @Query("sort_by") sortBy: String? = "popularity.desc"
+    ): MoviesList
 }

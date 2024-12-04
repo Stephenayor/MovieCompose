@@ -10,4 +10,15 @@ sealed class ApiResponse<out T> {
     data class Failure(
         val e: Exception?
     ): ApiResponse<Nothing>()
+
+
 }
+
+//data class ApiResponse<T>(
+//    var status: String? = null,
+//    var data: T? = null,
+//    var message: String? = null
+//) {
+//    // No-argument constructor required by Gson
+//    constructor() : this(null, null, null)
+//}

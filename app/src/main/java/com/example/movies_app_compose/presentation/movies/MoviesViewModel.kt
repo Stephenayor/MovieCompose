@@ -22,12 +22,16 @@ class MoviesViewModel @Inject constructor(
 
 
     init {
-        getAllMovies(1)
+//        getAllMovies(1)
+//        getMovies()
     }
 
      fun getAllMovies(page: Int) = viewModelScope.launch {
         moviesRepository.getAllMovies(page).collect { response ->
             moviesListResponse = response
         }
+    }
+    fun getMovies() = viewModelScope.launch {
+        moviesRepository.fetchMovies()
     }
 }
