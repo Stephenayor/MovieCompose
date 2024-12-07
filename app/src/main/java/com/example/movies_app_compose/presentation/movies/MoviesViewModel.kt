@@ -20,10 +20,8 @@ class MoviesViewModel @Inject constructor(
     var moviesListResponse by mutableStateOf<ApiResponse<MoviesList>>(ApiResponse.Loading)
         private set
 
-
     init {
-//        getAllMovies(1)
-//        getMovies()
+
     }
 
      fun getAllMovies(page: Int) = viewModelScope.launch {
@@ -31,7 +29,5 @@ class MoviesViewModel @Inject constructor(
             moviesListResponse = response
         }
     }
-    fun getMovies() = viewModelScope.launch {
-        moviesRepository.fetchMovies()
-    }
+
 }
