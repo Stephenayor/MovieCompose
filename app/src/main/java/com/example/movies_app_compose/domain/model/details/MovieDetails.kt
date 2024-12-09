@@ -8,7 +8,7 @@ data class MovieDetails (
 
   @SerializedName("adult"                 ) var adult               : Boolean?                       = null,
   @SerializedName("backdrop_path"         ) var backdropPath        : String?                        = null,
-  @SerializedName("belongs_to_collection" ) var belongsToCollection : String?                        = null,
+  @SerializedName("belongs_to_collection" ) var belongsToCollection : BelongsToCollection?                        = null,
   @SerializedName("budget"                ) var budget              : Int?                           = null,
   @SerializedName("genres"                ) var genres              : ArrayList<Genres>              = arrayListOf(),
   @SerializedName("homepage"              ) var homepage            : String?                        = null,
