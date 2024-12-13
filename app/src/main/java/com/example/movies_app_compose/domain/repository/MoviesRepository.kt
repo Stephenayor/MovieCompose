@@ -1,12 +1,10 @@
 package com.example.movies_app_compose.domain.repository
 
-import android.util.Log
 import com.example.movies_app_compose.domain.model.MoviesList
 import com.example.movies_app_compose.domain.model.details.MovieDetails
 import com.example.movies_app_compose.domain.model.trailers.Trailers
 import com.example.movies_app_compose.utils.ApiResponse
 import kotlinx.coroutines.flow.Flow
-import retrofit2.Response
 
 interface MoviesRepository {
 

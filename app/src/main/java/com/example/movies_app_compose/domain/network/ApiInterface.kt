@@ -3,9 +3,6 @@ package com.example.movies_app_compose.domain.network
 import com.example.movies_app_compose.domain.model.MoviesList
 import com.example.movies_app_compose.domain.model.details.MovieDetails
 import com.example.movies_app_compose.domain.model.trailers.Trailers
-import com.example.movies_app_compose.utils.ApiResponse
-import kotlinx.coroutines.flow.Flow
-import retrofit2.Response
 
 import retrofit2.http.GET
 import retrofit2.http.Path
